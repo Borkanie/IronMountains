@@ -1,25 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IronMountains
 {
     public partial class Form1 : Form
     {
-        User User { get; set; }
+        //This code is the first Application developed for the IronMountain test
         public Form1()
         {
             InitializeComponent();
         }
-
+        #region Propeties
+        User User { get; set; }
+        #endregion
+        #region EventHandlers
+        //We connect to database and check if the user exist in table
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var dbCon = DBConnection.Instance();
@@ -59,5 +55,6 @@ namespace IronMountains
 
 
         }
+        #endregion
     }
 }

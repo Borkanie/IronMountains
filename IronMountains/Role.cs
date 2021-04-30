@@ -1,24 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IronMountains
 {
+    //all the possible roles in our database
     public enum Roles
     {
         Admin,
         User,
         Intern
     }
+    //Role class i needed to implement Idisposable for using statement
+    //created it just for better logical managment of the users
     class Role : IDisposable
     {
-        public Roles Rol{get;set;}
         public Role(string role)
         {
-           
+
             switch (role)
             {
                 case "Admin":
@@ -35,9 +32,12 @@ namespace IronMountains
                     break;
             }
         }
+        //only one property
+        public Roles Rol { get; set; }
+        #region Methods
         public Roles GetRole()
         {
-            
+
             return this.Rol;
         }
         public override string ToString()
@@ -46,14 +46,14 @@ namespace IronMountains
         }
         public override bool Equals(object obj)
         {
-            if (!this.GetType().Equals(obj.GetType())||obj==null)
-                    return false;
+            if (!this.GetType().Equals(obj.GetType()) || obj == null)
+                return false;
             else
             {
                 Role dummy = (Role)obj;
                 if (this.Rol != dummy.Rol)
                     return false;
-                
+
             }
             return true;
         }
@@ -76,5 +76,6 @@ namespace IronMountains
                 return 2;
             return 0;
         }
+        #endregion
     }
 }
