@@ -9,6 +9,7 @@ namespace IronMountains
         //This code is the first Application developed for the IronMountain test
         public Form1()
         {
+
             InitializeComponent();
         }
         #region Propeties
